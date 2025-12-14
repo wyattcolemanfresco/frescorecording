@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import heroImage from "@/assets/hero-studio.jpg";
+import heroImage from "@/assets/fresco-hero-bg.jpg";
+import frescoLogo from "@/assets/fresco-logo-main.png";
 
 export const HeroSection = () => {
   return (
@@ -23,12 +24,11 @@ export const HeroSection = () => {
         <p className="text-primary font-body text-lg md:text-xl mb-4 animate-fade-in opacity-0">
           Welcome to
         </p>
-        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl text-foreground mb-6 animate-slide-up opacity-0 delay-100">
-          FRESCO
-          <span className="block text-4xl md:text-5xl lg:text-6xl text-gradient mt-2">
-            RECORDING SERVICES
-          </span>
-        </h1>
+        <img 
+          src={frescoLogo} 
+          alt="Fresco Recording Services" 
+          className="h-48 md:h-64 lg:h-80 w-auto mx-auto mb-6 animate-slide-up opacity-0 delay-100"
+        />
         <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in opacity-0 delay-300 font-body">
           The Best Sound in Pensacola. Professional music recording, voice over, and film production.
         </p>
