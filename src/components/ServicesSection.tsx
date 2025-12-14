@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import musicRecordingImage from "@/assets/music-recording.jpg";
-import voiceoverImage from "@/assets/voiceover-booth.jpg";
-import filmAdrImage from "@/assets/film-adr.jpg";
+import studioMainImage from "@/assets/studio-main.jpg";
+import studioEquipmentImage from "@/assets/studio-equipment.jpg";
+import studioSessionImage from "@/assets/studio-session.jpg";
 
 const services = [
   {
@@ -9,7 +9,7 @@ const services = [
     subtitle: "Professional Studio Sessions",
     description:
       "From demo recordings to full album production, our engineers bring your musical vision to life with industry-standard equipment and decades of experience.",
-    image: musicRecordingImage,
+    image: studioMainImage,
     features: ["Multi-track Recording", "Mixing & Mastering", "Live Sessions", "Remote Recording"],
   },
   {
@@ -17,7 +17,7 @@ const services = [
     subtitle: "Crystal Clear Narration",
     description:
       "Our acoustically treated booth and high-end microphones capture every nuance of your voice for commercials, podcasts, e-learning, and more.",
-    image: voiceoverImage,
+    image: studioEquipmentImage,
     features: ["Commercial VO", "Podcast Production", "E-Learning", "IVR & Phone Systems"],
   },
   {
@@ -25,7 +25,7 @@ const services = [
     subtitle: "Post-Production Excellence",
     description:
       "Automatic Dialogue Replacement and foley work for film and television. We sync your audio perfectly to picture with professional precision.",
-    image: filmAdrImage,
+    image: studioSessionImage,
     features: ["ADR Recording", "Foley Work", "Sound Design", "Audio Post-Production"],
   },
 ];
