@@ -23,10 +23,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="/frescorecording/favicon.ico" />
-    <link
-      rel="apple-touch-icon"
-      href="/frescorecording/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" href="/frescorecording/apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Fresco Recording Services" />
@@ -61,6 +58,36 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#000000" />
 
+    <!-- Structured Data: LocalBusiness / RecordingStudio -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "MusicGroup", "RecordingStudio"],
+        "name": "Fresco Recording Services",
+        "description": "Professional recording studio in Pensacola, Florida offering recording, mixing, voiceover, ADR, and music production.",
+        "url": "https://wyattcolemanfresco.github.io/frescorecording/",
+        "image": "https://wyattcolemanfresco.github.io/frescorecording/og_image.jpg",
+        "logo": "https://wyattcolemanfresco.github.io/frescorecording/Fresco_Main.avif",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Pensacola"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Florida"
+          }
+        ],
+        "serviceType": [
+          "Audio recording",
+          "Mixing",
+          "Music production",
+          "Voiceover",
+          "ADR"
+        ]
+      }
+    </script>
+
     <!-- Vite entry -->
     <script type="module" src="/src/main.tsx"></script>
   </head>
@@ -69,3 +96,4 @@
     <div id="root"></div>
   </body>
 </html>
+
