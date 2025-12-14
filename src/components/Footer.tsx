@@ -1,9 +1,11 @@
+import frescoLogo from "@/assets/fresco-logo-main.png";
+
 export const Footer = () => {
   return (
     <footer className="py-8 border-t border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-display text-2xl text-gradient">FRESCO</p>
+          <img src={frescoLogo} alt="Fresco Recording Services" className="h-12 w-auto" />
           <p className="text-muted-foreground font-body text-sm text-center">
             © {new Date().getFullYear()} Fresco Recording Services. All rights reserved.
           </p>

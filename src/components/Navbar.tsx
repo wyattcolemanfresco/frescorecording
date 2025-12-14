@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import frescoLogo from "@/assets/fresco-logo-main.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -31,8 +32,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
-        <a href="#home" className="font-display text-3xl text-gradient">
-          FRESCO
+        <a href="#home">
+          <img src={frescoLogo} alt="Fresco Recording Services" className="h-12 md:h-16 w-auto" />
         </a>
 
         {/* Desktop Navigation */}
