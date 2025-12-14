@@ -1,5 +1,4 @@
 import teamFabio from "@/assets/team-fabio.jpg";
-import teamWyatt from "@/assets/team-wyatt.jpg";
 import teamKyle from "@/assets/team-kyle.jpg";
 import teamTiffany from "@/assets/team-tiffany.png";
 import teamBrandon from "@/assets/team-brandon.jpg";
@@ -9,11 +8,6 @@ const teamMembers = [
     name: "Fabio Arauz",
     role: "Owner/Chief Engineer",
     image: teamFabio,
-  },
-  {
-    name: "Wyatt Coleman",
-    role: "Producer/House Engineer",
-    image: teamWyatt,
   },
   {
     name: "Kyle Septer",
