@@ -1,28 +1,34 @@
+import teamFabio from "@/assets/team-fabio.jpg";
+import teamWyatt from "@/assets/team-wyatt.jpg";
+import teamKyle from "@/assets/team-kyle.jpg";
+import teamTiffany from "@/assets/team-tiffany.png";
+import teamBrandon from "@/assets/team-brandon.jpg";
+
 const teamMembers = [
   {
     name: "Fabio Arauz",
     role: "Owner/Chief Engineer",
-    initial: "FA",
+    image: teamFabio,
   },
   {
     name: "Wyatt Coleman",
     role: "Producer/House Engineer",
-    initial: "WC",
+    image: teamWyatt,
   },
   {
     name: "Kyle Septer",
     role: "House Engineer",
-    initial: "KS",
+    image: teamKyle,
   },
   {
     name: "Tiffany Isom",
     role: "House Engineer",
-    initial: "TI",
+    image: teamTiffany,
   },
   {
     name: "Brandon Nguyen",
     role: "Producer",
-    initial: "BN",
+    image: teamBrandon,
   },
 ];
 
@@ -46,10 +52,12 @@ export const TeamSection = () => {
               className="glass-card p-6 text-center hover-lift group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/20 group-hover:border-primary/50 transition-colors duration-300">
-                <span className="font-display text-3xl text-primary">
-                  {member.initial}
-                </span>
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors duration-300">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <h3 className="font-display text-xl text-foreground mb-1">
                 {member.name}
