@@ -14,6 +14,7 @@ export const ContactSection = () => {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
     _gotcha: "", // honeypot field
@@ -36,6 +37,7 @@ export const ContactSection = () => {
           firstName: "",
           lastName: "",
           email: "",
+          phone: "",
           subject: "",
           message: "",
           _gotcha: "",
@@ -48,6 +50,7 @@ export const ContactSection = () => {
       payload.append("firstName", formData.firstName);
       payload.append("lastName", formData.lastName);
       payload.append("email", formData.email);
+      payload.append("phone", formData.phone);
       payload.append("subject", formData.subject);
       payload.append("message", formData.message);
       payload.append("_gotcha", formData._gotcha);
@@ -142,18 +145,33 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Email
-                </label>
-                <Input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-secondary/50 border-border/50 focus:border-primary"
-                />
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">
+                    Email
+                  </label>
+                  <Input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="bg-secondary/50 border-border/50 focus:border-primary"
+                  />
+                </div>
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">
+                    Phone Number
+                  </label>
+                  <Input
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="bg-secondary/50 border-border/50 focus:border-primary"
+                  />
+                </div>
               </div>
 
               <div>
@@ -220,9 +238,14 @@ export const ContactSection = () => {
                   <h4 className="font-display text-xl text-foreground mb-1">
                     Phone
                   </h4>
-                  <p className="text-muted-foreground font-body">
-                    Contact us for details
-                  </p>
+                  <a
+                    href="tel:+16013238529"
+                    className="inline-block mt-2"
+                  >
+                    <Button variant="outline" size="sm">
+                      Call Us
+                    </Button>
+                  </a>
                 </div>
               </div>
 
@@ -234,9 +257,12 @@ export const ContactSection = () => {
                   <h4 className="font-display text-xl text-foreground mb-1">
                     Email
                   </h4>
-                  <p className="text-muted-foreground font-body">
-                    info@frescorecording.com
-                  </p>
+                  <a 
+                    href="mailto:frescorecordingservices@gmail.com" 
+                    className="text-muted-foreground font-body hover:text-primary transition-colors"
+                  >
+                    frescorecordingservices@gmail.com
+                  </a>
                 </div>
               </div>
             </div>
