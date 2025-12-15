@@ -16,46 +16,55 @@ export const ContactSection = () => {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://formspree.io/f/mldqvvzk", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const payload = new URLSearchParams();
+    payload.append("firstName", formData.firstName);
+    payload.append("lastName", formData.lastName);
+    payload.append("email", formData.email);
+    payload.append("subject", formData.subject);
+    payload.append("message", formData.message);
+    payload.append("_gotcha", "");
 
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
+    const response = await fetch("https://formspree.io/f/mldqvvzk", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
+      },
+      body: payload.toString(),
+    });
 
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you soon!",
-      });
-
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    } catch (error) {
-      toast({
-        title: "Submission Failed",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+    if (!response.ok) {
+      throw new Error("Form submission failed");
     }
-  };
+
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. We'll get back to you soon!",
+    });
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  } catch (error) {
+    toast({
+      title: "Submission Failed",
+      description: "Please try again later.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
