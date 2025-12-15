@@ -14,57 +14,78 @@ export const ContactSection = () => {
     email: "",
     subject: "",
     message: "",
+    _gotcha: "", // honeypot field
   });
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    const payload = new URLSearchParams();
-    payload.append("firstName", formData.firstName);
-    payload.append("lastName", formData.lastName);
-    payload.append("email", formData.email);
-    payload.append("subject", formData.subject);
-    payload.append("message", formData.message);
-    payload.append("_gotcha", "");
+    try {
+      // If the hidden field is filled, it's almost certainly a bot.
+      if (formData._gotcha) {
+        // Pretend success to avoid tipping off bots
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. We'll get back to you soon!",
+        });
 
-    const response = await fetch("https://formspree.io/f/mldqvvzk", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Accept: "application/json",
-      },
-      body: payload.toString(),
-    });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+          _gotcha: "",
+        });
 
-    if (!response.ok) {
-      throw new Error("Form submission failed");
+        return;
+      }
+
+      const payload = new URLSearchParams();
+      payload.append("firstName", formData.firstName);
+      payload.append("lastName", formData.lastName);
+      payload.append("email", formData.email);
+      payload.append("subject", formData.subject);
+      payload.append("message", formData.message);
+      payload.append("_gotcha", formData._gotcha);
+
+      const response = await fetch("https://formspree.io/f/mldqvvzk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "application/json",
+        },
+        body: payload.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. We'll get back to you soon!",
+      });
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+        _gotcha: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you soon!",
-    });
-
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-  } catch (error) {
-    toast({
-      title: "Submission Failed",
-      description: "Please try again later.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -96,6 +117,8 @@ const handleSubmit = async (e: React.FormEvent) => {
               <input
                 type="text"
                 name="_gotcha"
+                value={formData._gotcha}
+                onChange={handleChange}
                 style={{ display: "none" }}
                 tabIndex={-1}
                 autoComplete="off"
