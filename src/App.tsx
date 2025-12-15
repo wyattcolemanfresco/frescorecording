@@ -9,12 +9,17 @@ import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
+// If Vite base is "./", BASE_URL becomes "./" -> don't pass a basename at all.
+const rawBase = import.meta.env.BASE_URL;
+const basename =
+  rawBase === "./" || rawBase === "." ? undefined : rawBase.replace(/\/$/, "");
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/thank-you" element={<ThankYou />} />
