@@ -2,6 +2,7 @@ import teamFabio from "@/assets/team-fabio.jpg";
 import teamKyle from "@/assets/team-kyle.jpg";
 import teamTiffany from "@/assets/team-tiffany.png";
 import teamBrandon from "@/assets/team-brandon.jpg";
+import teamWyatt from "@/assets/team-wyatt.jpg";
 
 const teamMembers = [
   {
@@ -23,6 +24,11 @@ const teamMembers = [
     name: "Brandon Nguyen",
     role: "Producer",
     image: teamBrandon,
+  },
+  {
+    name: "Wyatt Coleman",
+    role: "Marketing & Technology",
+    image: teamWyatt,
   },
 ];
 
