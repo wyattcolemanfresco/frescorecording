@@ -1,8 +1,7 @@
 import teamFabio from "@/assets/team-fabio.jpg";
-import teamKyle from "@/assets/team-kyle.jpg";
 import teamTiffany from "@/assets/team-tiffany.png";
 import teamBrandon from "@/assets/team-brandon.jpg";
-import teamWyatt from "@/assets/team-wyatt.jpg";
+import teamWyatt from "@/assets/team-wyatt-new.jpg";
 
 const teamMembers = [
   {
@@ -11,14 +10,19 @@ const teamMembers = [
     image: teamFabio,
   },
   {
-    name: "Kyle Septer",
-    role: "House Engineer",
-    image: teamKyle,
-  },
-  {
     name: "Tiffany Isom",
     role: "House Engineer",
     image: teamTiffany,
+  },
+  {
+    name: "Holly Whittemore",
+    role: "Engineer",
+    image: null,
+  },
+  {
+    name: "Jeffrey Jadallah",
+    role: "Engineer",
+    image: null,
   },
   {
     name: "Brandon Nguyen",
@@ -52,12 +56,18 @@ export const TeamSection = () => {
               className="glass-card p-6 text-center hover-lift group"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors duration-300">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary/50 transition-colors duration-300 bg-secondary/50 flex items-center justify-center">
+                {member.image ? (
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                ) : (
+                  <span className="text-3xl text-muted-foreground font-display">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                )}
               </div>
               <h3 className="font-display text-xl text-foreground mb-1">
                 {member.name}
