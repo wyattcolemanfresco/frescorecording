@@ -20,22 +20,41 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("https://formspree.io/f/mldqvvzk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you soon!",
-    });
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    setIsSubmitting(false);
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. We'll get back to you soon!",
+      });
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -64,6 +83,15 @@ export const ContactSection = () => {
           {/* Contact Form */}
           <div className="glass-card p-8 md:p-10">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field (spam trap) */}
+              <input
+                type="text"
+                name="_gotcha"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
@@ -90,6 +118,7 @@ export const ContactSection = () => {
                   />
                 </div>
               </div>
+
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
                   Email
@@ -103,6 +132,7 @@ export const ContactSection = () => {
                   className="bg-secondary/50 border-border/50 focus:border-primary"
                 />
               </div>
+
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
                   Subject
@@ -115,6 +145,7 @@ export const ContactSection = () => {
                   className="bg-secondary/50 border-border/50 focus:border-primary"
                 />
               </div>
+
               <div>
                 <label className="text-sm font-medium text-foreground mb-2 block">
                   Message
@@ -128,6 +159,7 @@ export const ContactSection = () => {
                   className="bg-secondary/50 border-border/50 focus:border-primary resize-none"
                 />
               </div>
+
               <Button
                 type="submit"
                 variant="hero"
