@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +8,7 @@ import { Instagram, Youtube, Twitter, MapPin, Phone, Mail } from "lucide-react";
 
 export const ContactSection = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -63,19 +65,8 @@ export const ContactSection = () => {
         throw new Error("Form submission failed");
       }
 
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you soon!",
-      });
-
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-        _gotcha: "",
-      });
+      // Redirect to thank you page
+      navigate("/thank-you");
     } catch (error) {
       toast({
         title: "Submission Failed",
