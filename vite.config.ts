@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/frescorecording/", // 👈 REQUIRED for GitHub Pages
+  base: "./",
 
   server: {
     host: "::",
@@ -17,4 +17,3 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
-
