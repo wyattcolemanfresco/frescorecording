@@ -15,15 +15,12 @@
       content="Fresco Recording Services is a professional recording studio in Pensacola, Florida offering recording, mixing, voiceover, ADR, and music production."
     />
 
-    <!-- Canonical -->
-    <link
-      rel="canonical"
-      href="https://wyattcolemanfresco.github.io/frescorecording/"
-    />
+    <!-- Canonical (use your custom domain once live) -->
+    <link rel="canonical" href="https://www.frescorecordingservices.com/" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="/frescorecording/favicon.ico" />
-    <link rel="apple-touch-icon" href="/frescorecording/apple-touch-icon.png" />
+    <!-- Favicon (relative so it works on both domain + subpath) -->
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Fresco Recording Services" />
@@ -32,13 +29,10 @@
       content="Professional recording studio in Pensacola, FL. Recording, mixing, voiceover, ADR, and music production."
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://wyattcolemanfresco.github.io/frescorecording/"
-    />
+    <meta property="og:url" content="https://www.frescorecordingservices.com/" />
     <meta
       property="og:image"
-      content="https://wyattcolemanfresco.github.io/frescorecording/og_image.jpg"
+      content="https://www.frescorecordingservices.com/og_image.jpg"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -52,31 +46,25 @@
     />
     <meta
       name="twitter:image"
-      content="https://wyattcolemanfresco.github.io/frescorecording/og_image.jpg"
+      content="https://www.frescorecordingservices.com/og_image.jpg"
     />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#000000" />
 
-    <!-- Structured Data: LocalBusiness / RecordingStudio -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "MusicGroup", "RecordingStudio"],
+        "@type": ["LocalBusiness", "RecordingStudio"],
         "name": "Fresco Recording Services",
         "description": "Professional recording studio in Pensacola, Florida offering recording, mixing, voiceover, ADR, and music production.",
-        "url": "https://wyattcolemanfresco.github.io/frescorecording/",
-        "image": "https://wyattcolemanfresco.github.io/frescorecording/og_image.jpg",
-        "logo": "https://wyattcolemanfresco.github.io/frescorecording/Fresco_Main.avif",
+        "url": "https://www.frescorecordingservices.com/",
+        "image": "https://www.frescorecordingservices.com/og_image.jpg",
+        "logo": "https://www.frescorecordingservices.com/Fresco_Main.avif",
         "areaServed": [
-          {
-            "@type": "City",
-            "name": "Pensacola"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Florida"
-          }
+          { "@type": "City", "name": "Pensacola" },
+          { "@type": "AdministrativeArea", "name": "Florida" }
         ],
         "serviceType": [
           "Audio recording",
@@ -88,7 +76,7 @@
       }
     </script>
 
-    <!-- Vite entry -->
+    <!-- Vite entry (keep as-is; Vite will resolve with base: './') -->
     <script type="module" src="/src/main.tsx"></script>
   </head>
 
@@ -96,4 +84,3 @@
     <div id="root"></div>
   </body>
 </html>
-
