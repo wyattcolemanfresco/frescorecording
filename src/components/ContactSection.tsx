@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Instagram, Youtube, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, Youtube, Twitter, MapPin, Mail } from "lucide-react";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -14,7 +14,6 @@ export const ContactSection = () => {
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",
     subject: "",
     message: "",
     _gotcha: "", // honeypot field
@@ -37,7 +36,6 @@ export const ContactSection = () => {
           firstName: "",
           lastName: "",
           email: "",
-          phone: "",
           subject: "",
           message: "",
           _gotcha: "",
@@ -50,7 +48,6 @@ export const ContactSection = () => {
       payload.append("firstName", formData.firstName);
       payload.append("lastName", formData.lastName);
       payload.append("email", formData.email);
-      payload.append("phone", formData.phone);
       payload.append("subject", formData.subject);
       payload.append("message", formData.message);
       payload.append("_gotcha", formData._gotcha);
@@ -145,33 +142,18 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Email
-                  </label>
-                  <Input
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="bg-secondary/50 border-border/50 focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Phone Number
-                  </label>
-                  <Input
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="bg-secondary/50 border-border/50 focus:border-primary"
-                  />
-                </div>
+              <div>
+                <label className="text-sm font-medium text-foreground mb-2 block">
+                  Email
+                </label>
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-secondary/50 border-border/50 focus:border-primary"
+                />
               </div>
 
               <div>
@@ -230,24 +212,6 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl text-foreground mb-1">
-                    Phone
-                  </h4>
-                  <a
-                    href="tel:+16013238529"
-                    className="inline-block mt-2"
-                  >
-                    <Button variant="outline" size="sm">
-                      Call Us
-                    </Button>
-                  </a>
-                </div>
-              </div>
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
