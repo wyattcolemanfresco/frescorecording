@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Instagram, Youtube, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, Youtube, Twitter, MapPin, Mail } from "lucide-react";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -230,24 +230,6 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-display text-xl text-foreground mb-1">
-                    Phone
-                  </h4>
-                  <a
-                    href="tel:+16013238529"
-                    className="inline-block mt-2"
-                  >
-                    <Button variant="outline" size="sm">
-                      Call Us
-                    </Button>
-                  </a>
-                </div>
-              </div>
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
